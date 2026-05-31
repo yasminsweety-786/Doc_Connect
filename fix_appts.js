@@ -1,0 +1,1 @@
+const { MongoClient } = require('mongodb'); require('dotenv').config(); MongoClient.connect(process.env.MONGO_URI).then(async (c) => { await c.db().collection('appointments').updateMany({}, { $set: { status: 'Accepted' } }); console.log('Fixed statuses!'); process.exit(0); });
